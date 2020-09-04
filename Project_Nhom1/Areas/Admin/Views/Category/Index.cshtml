@@ -1,0 +1,63 @@
+﻿@using Project_Nhom1.Areas.Admin.Models
+@model List<CategoryModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row form-group" style="padding-top: 1rem;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    Danh mục sản phẩm
+                </div>
+                <div class="col-md-3">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="input-group custom-search-form">
+                            <input type="text" name="keySearch" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-3">
+                    <a href="@Url.Action("AddCategory")" class="btn btn-danger">Thêm danh mục sản phẩm</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên danh mục</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.IDCategory</td>
+                                <td>@item.Name</td>
+                                <td>
+                                    <a href="@Url.Action("EditCategory", new { id = item.IDCategory })" class="btn btn-primary"><i class="fa fa-edit" title="Sửa"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+</div>
+

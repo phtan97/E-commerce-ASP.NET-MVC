@@ -1,0 +1,18 @@
+﻿@model Model.ViewModel.UserCommentViewModel
+
+
+<div class="comment-form-container">
+    <form class="comment-form" data-action="@Url.Action("UserComment", "User")">
+        @Html.HiddenFor(m => m.IDUser)
+        <div>
+            <div>@Html.LabelFor(m => m.Comment)</div>
+            @Html.TextAreaFor(m => m.Comment, new { Class = "comment-body", rows = "3", cols = "50" })
+        </div>
+        <div class="comment-result" style="display: none;">
+            <span class="comment-result-text">An error occurred</span>
+        </div>
+        <div>
+            <button type="submit" class="comment-form-submit">Submit comment</button>
+        </div>
+    </form>
+</div>

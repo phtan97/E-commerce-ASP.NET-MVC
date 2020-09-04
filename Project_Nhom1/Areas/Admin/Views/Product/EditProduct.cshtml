@@ -1,0 +1,64 @@
+﻿@model Project_Nhom1.Areas.Admin.Models.ProductModel
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+        <h4>Chỉnh sửa sản phẩm</h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("EditProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(x => x.IDProduct)
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="form-group has-success">
+                        <label class="required">Tên Sản phẩm</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error-message" })
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess">Chọn hình</label>
+                        <input type="file" name="file" id="file" accept="image/x-png,image/gif,image/jpeg">
+                    </div>
+                    <div class="form-group has-success">
+                        <img src="@Model.Image" style="width: 200px" class="img-thumbnail" />
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="required">Giá sản phẩm</label>
+                        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", min = "0", type = "number" })
+                        @Html.ValidationMessageFor(x => x.Price, "", new { @class = "error-message" })
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess">Danh mục sản phẩm</label>
+                        @Html.DropDownListFor(x => x.IDCategory, Model.Categories, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.IDCategory, "", new { @class = "error-message" })
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess">Thương hiệu sản phẩm</label>
+                        @Html.DropDownListFor(x => x.IDTradeMark, Model.TradeMarks, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.IDTradeMark, "", new { @class = "error-message" })
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="required">Mô tả</label>
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows = "4" })
+                        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "error-message" })
+                    </div>
+
+                    <div class="form-group has-success">
+                        <input type="submit" value="Lưu" class="btn btn-primary">
+                    </div>
+                    <button onclick="goBack()">Go Back</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+

@@ -1,0 +1,39 @@
+﻿@model Project_Nhom1.Areas.Admin.Models.CategoryModel
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="panel panel-primary">
+    <div class="panel panel-heading">
+        <h4>Chỉnh sửa danh mục sản phẩm</h4>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("EditCategory", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(x => x.IDCategory)
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <div class="form-group has-success">
+                        <label class="required">Tên danh mục sản phẩm</label>
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error-message" })
+                    </div>
+                   
+                    <div class="form-group has-success">
+                        <input type="submit" value="Lưu" class="btn btn-primary">
+                    </div>
+                    <button onclick="goBack()">Go Back</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+

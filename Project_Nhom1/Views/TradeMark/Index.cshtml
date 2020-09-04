@@ -1,0 +1,20 @@
+﻿@model List<Model.EF.TradeMark>
+
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg img-thumbnail" data-setbg="/Content/Images/trademark/@item.Image" style="border-radius:50%">
+                            <h5><a href="@Url.Action("TradeMarkProduct", "Product", new { id = item.IDTradeMark })">@item.Name</a></h5>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->

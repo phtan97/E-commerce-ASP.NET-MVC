@@ -1,0 +1,30 @@
+﻿@model List<Model.EF.Product>
+@{
+    ViewBag.Title = "CategoryProduct";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item" style="width:270px;height:270px;margin-bottom:100px">
+                    <div class="product__item__pic set-bg img-thumbnail" data-setbg="/Content/Images/@item.Image">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                            <li><a onclick="cart" href="@Url.Action("AddCart", "Cart", new { @productID = @item.IDProduct, @quantity = 1 })"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="@Url.Action("DetailProduct","Product",new {id = item.IDProduct })">@item.Name</a></h6>
+                        <h5>@String.Format("{0:0,0}", @item.Price) đ</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

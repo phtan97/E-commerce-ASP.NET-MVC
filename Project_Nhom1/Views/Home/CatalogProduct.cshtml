@@ -1,0 +1,74 @@
+﻿
+@model List<Model.EF.Product>
+
+<!-- Latest Product Section Begin -->
+<section class="latest-product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Latest Products</h4>
+                    <div class="latest-product__slider owl-carousel">
+                        <div class="latest-prdouct__slider__item">
+                            @foreach (var item in Model)
+                            {
+                                <a href="@Url.Action("DetailProduct", "Product", new {id=item.IDProduct })" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="~/Content/Images/@item.Image" alt="" style="width:110px;height:110px">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@item.Price đ</span>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Top Rated Products</h4>
+                    <div class="latest-product__slider owl-carousel">
+                        <div class="latest-prdouct__slider__item">
+                            @foreach (var item in Model)
+                            {
+                                <a href="@Url.Action("DetailProduct", "Product", new {id=item.IDProduct })" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="~/Content/Images/@item.Image" alt="" style="width:110px;height:110px">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@item.Price đ</span>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Review Products</h4>
+                    <div class="latest-product__slider owl-carousel">
+                        <div class="latest-prdouct__slider__item">
+                            @foreach (var item in Model)
+                            {
+                                <a href="@Url.Action("DetailProduct", "Product", new {id=item.IDProduct })" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="~/Content/Images/@item.Image" alt="" style="width:110px;height:110px">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@item.Price đ</span>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Latest Product Section End -->
