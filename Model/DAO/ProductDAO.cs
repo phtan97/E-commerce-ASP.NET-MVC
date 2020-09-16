@@ -10,10 +10,10 @@ namespace Model.DAO
 {
     public class ProductDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public ProductDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         //lay san pham tu id
         public Product GetProductByID(long id)

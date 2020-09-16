@@ -9,10 +9,10 @@ namespace Model.DAO
 {
     public class DetailOrderDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public DetailOrderDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         public bool Insert(DetailOrder detail)
         {

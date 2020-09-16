@@ -132,7 +132,16 @@
                             </ul>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="@Url.Action("Index","User")"><i class="fa fa-user"></i> Login</a>/<a href="@Url.Action("Logout","User")"> Logout</a>
+                            @if (string.IsNullOrEmpty(Session["USER_SESSION"] as string))
+                            {
+                                
+                                <a href="@Url.Action("Index","User")"><i class="fa fa-user"></i> Login</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Logout","User")"> Logout</a>
+                            }
+
                         </div>
                     </div>
                 </div>

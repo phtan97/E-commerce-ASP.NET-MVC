@@ -12,6 +12,7 @@
     }
 </style>
 <!-- Shoping Cart Section Begin -->
+
 <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
@@ -43,7 +44,7 @@
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
-                                                    <input class="ajaxqty" type="text" data-id="@item.Product.IDProduct" value="@item.Quantity">
+                                                    <input v-model="price" class="ajaxqty" type="text" data-id="@item.Product.IDProduct" value="@item.Quantity">
                                                 </div>
                                             </div>
                                         </td>

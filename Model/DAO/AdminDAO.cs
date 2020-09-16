@@ -9,10 +9,10 @@ namespace Model.DAO
 {
     public class AdminDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public AdminDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         public string Insert(Admin entity)
         {

@@ -116,20 +116,20 @@ namespace Project_Nhom1.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult UserComment(UserCommentViewModel viewmodel)
-        {
-            if (ModelState.IsValid)
-            {
-                var comment = new Feedback();
-                var commentDao = new CommentDAO();
-                comment.Comment = viewmodel.Comment;
-                comment.User.UserName = viewmodel.UserName;
-                commentDao.InserComment(comment);
-                return new EmptyResult();
+        //[HttpPost]
+        //public ActionResult UserComment(UserCommentViewModel viewmodel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var comment = new Feedback();
+        //        var commentDao = new CommentDAO();
+        //        comment.Comment = viewmodel.Comment;
+        //        comment.User.UserName = viewmodel.UserName;
+        //        commentDao.InserComment(comment);
+        //        return new EmptyResult();
 
-            }
-            return new EmptyResult();   
-        }
+        //    }
+        //    return new EmptyResult();   
+        //}
     }
 }

@@ -57,8 +57,8 @@ namespace Project_Nhom1.Controllers
                 status = true
             });
         }
-        
-        public ActionResult AddCart(long productID, int quantity)
+        [HttpPost]
+        public JsonResult AddCart(long productID, int quantity)
         {
             var product = new ProductDAO().Detail(productID);
             var cart = Session[CartSession];
@@ -93,7 +93,10 @@ namespace Project_Nhom1.Controllers
                 list.Add(item);
                 Session[CartSession] = list;
             }
-            return RedirectToAction("Index", "Cart");
+            return Json(new
+            {
+                status = true
+            });
         }
         public decimal? Total()
         {
@@ -166,6 +169,7 @@ namespace Project_Nhom1.Controllers
         }
         public ActionResult InformationOrder()
         {
+            Session.Remove(CartSession);
             return View();
         }
     }

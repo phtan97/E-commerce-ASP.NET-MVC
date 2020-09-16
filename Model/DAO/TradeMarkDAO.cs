@@ -10,10 +10,10 @@ namespace Model.DAO
 {
     public class TradeMarkDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public TradeMarkDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         public TradeMark GetTradeMarkByID(long id)
         {
