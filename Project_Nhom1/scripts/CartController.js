@@ -2,16 +2,16 @@
     init: function () {
         cart.regEvents();
     },
-    regEvents: function(){
+    regEvents: function () {
         $('#btnUpdate').off('click').on('click', function () {
             var listProduct = $('.ajaxqty');
             var cartList = [];
-            $.each(listProduct,function(i,item){
-            cartList.push({
-                Quantity: $(item).val(),
-                Product: {
-                    IDProduct: $(item).data('id')
-                }
+            $.each(listProduct, function (i, item) {
+                cartList.push({
+                    Quantity: $(item).val(),
+                    Product: {
+                        IDProduct: $(item).data('id')
+                    }
                 });
             });
             $.ajax({
@@ -40,7 +40,7 @@
                 }
             })
         });
-       
+
     }
 }
 cart.init();

@@ -5,34 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
+using PusherServer;
 
 namespace Model.DAO
 {
     public class CommentDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public CommentDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
-        public List<UserCommentViewModel> ListByUserID()
+        public void AddComment(Comment comment)
         {
-            var comment = from a in data.Feedbacks
-                          join b in data.Users
-                            on a.IDUser equals b.IDUser
-                          where a.IDUser == b.IDUser
-                          select new UserCommentViewModel()
-                          {
-                              IDUser = b.IDUser,
-                              UserName = b.UserName,
-                              Comment = a.Comment
-                          };
-            return comment.ToList();
-        }
-        public void InserComment(Feedback fb)
-        {
-            data.Feedbacks.Add(fb);
+            data.Comments.Add(comment);
             data.SaveChanges();
+        }
+
+        public List<Comment> GetAllComments()
+        {
+            var result = data.Comments.AsQueryable();
+            return result.ToList();
         }
     }
 }

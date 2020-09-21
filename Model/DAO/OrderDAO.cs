@@ -9,10 +9,10 @@ namespace Model.DAO
 {
     public class OrderDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public OrderDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         public long Insert(Order order)
         {

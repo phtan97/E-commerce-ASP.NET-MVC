@@ -1,0 +1,27 @@
+﻿@model List<Model.EF.Comment>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="comments-list">
+                <div class="media">
+                    <div class="media-body">
+                        @foreach (var item in Model)
+                        {
+                            <h4 class="media-heading user_name">@item.Name</h4>
+                            @item.Body
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <p>Your Comment</p>
+    <form class="col-md-6" onsubmit="return false;">
+        <input type="text" id="Name" placeholder="Your Name" v-model="comment.Name" class="form-control" />
+        <textarea rows="3" placeholder="Your Comment" id="Body" v-model="comment.Body" class="form-control"></textarea>
+        <button class="btn btn-success" v-on:click="submit_comment()">save</button>
+    </form>
+</div>

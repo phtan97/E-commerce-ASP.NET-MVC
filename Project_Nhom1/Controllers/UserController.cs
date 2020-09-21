@@ -26,8 +26,7 @@ namespace Project_Nhom1.Controllers
         }
         public ActionResult Login()
         {
-            var model = new LoginModel();
-            return View(model);
+            return View();
         }
         [HttpPost]
         [AllowAnonymous]
@@ -104,7 +103,7 @@ namespace Project_Nhom1.Controllers
                         userDao.AddUser(user);
                         ViewBag.Success = "Welcome" + model.UserName;
                         model = new RegisterModel();
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Index");
                     }
                 }
                 else
@@ -116,20 +115,20 @@ namespace Project_Nhom1.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult UserComment(UserCommentViewModel viewmodel)
-        {
-            if (ModelState.IsValid)
-            {
-                var comment = new Feedback();
-                var commentDao = new CommentDAO();
-                comment.Comment = viewmodel.Comment;
-                comment.User.UserName = viewmodel.UserName;
-                commentDao.InserComment(comment);
-                return new EmptyResult();
+        //[HttpPost]
+        //public ActionResult UserComment(UserCommentViewModel viewmodel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var comment = new Feedback();
+        //        var commentDao = new CommentDAO();
+        //        comment.Comment = viewmodel.Comment;
+        //        comment.User.UserName = viewmodel.UserName;
+        //        commentDao.InserComment(comment);
+        //        return new EmptyResult();
 
-            }
-            return new EmptyResult();   
-        }
+        //    }
+        //    return new EmptyResult();   
+        //}
     }
 }

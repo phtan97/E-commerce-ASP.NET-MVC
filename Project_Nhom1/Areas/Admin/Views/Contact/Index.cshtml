@@ -1,0 +1,59 @@
+﻿@model List<Project_Nhom1.Models.ContactModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row form-group" style="padding-top: 1rem;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-5">
+                    Tin nhắn liên hệ
+                </div>
+                <div class="col-md-3">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="input-group custom-search-form">
+                            <input type="text" name="keySearch" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên người gửi</th>
+                            <th>Email</th>
+                            <th>Nội dung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ContactID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                                <td>@item.Message</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+</div>
+

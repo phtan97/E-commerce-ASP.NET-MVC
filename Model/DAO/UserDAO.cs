@@ -10,10 +10,10 @@ namespace Model.DAO
 {
    public class UserDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public UserDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
 
         //public long Insert(User entity)

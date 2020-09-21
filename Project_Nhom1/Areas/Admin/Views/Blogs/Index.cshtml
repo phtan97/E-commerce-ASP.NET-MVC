@@ -1,0 +1,112 @@
+﻿@model List<Project_Nhom1.Models.BlogModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .content__blog {
+        white-space: nowrap;
+        width: 400px;
+        height: 100px;      
+        overflow: auto;
+    }
+
+    .title__blog {
+        white-space: nowrap;
+        width: 200px;
+        height: 100px;      
+        overflow: auto;
+    }
+</style>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-5">
+                Bài viết
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("AddBlog")" class="btn btn-danger">Tạo bài viết</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Hình ảnh bài viết</th>
+                        <th>Tiêu đề</th>
+                        <th>Nội dung</th>
+                        <th>tác giả</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="tr-@item.BlogID" class="">
+                            <td><img class="img-thumbnail" style="max-width:70px;height:70px" src="~/Content/Images/@item.BlogImg" /></td>
+                            <td><div class="title__blog">@item.Title</div></td>
+                            <td><div class="content__blog">@Html.Raw(item.Body)</div></td>
+                            <td>@item.Author</td>
+                            <td><a href="@Url.Action("EditProduct", new { id=item.BlogID })" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
+                            <td>
+                                @Ajax.ActionLink("X", "DelProduct", new { @id = item.BlogID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn muốn xóa bài viết này không?",
+                               OnComplete = "$('#tr-" + @item.BlogID + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "btn btn-danger", @id = "myActionId" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modal-confirm-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận xóa sản phẩm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa sản phảm này không</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-delete" type="button" class="btn btn-primary">Có</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function ConfirmDelete(IDProduct) {
+        $('#modal-confirm-delete').modal('show');
+        $('#btn-delete').attr('onclick', 'DelProduct(' + IDProduct + ')');
+    }
+
+    function DelProduct(id) {
+        $.ajax({
+            url: '@Url.Action("DelProduct","Product")',
+            type: 'post',
+            data: { IDProduct: id },
+            success: function (result) {
+                $('#modal-confirm-delete').modal('hide');
+                $('#tr-' + id + '').remove();
+            }
+        });
+    }
+    $(".myActionId").prepend("<i class='fa fa-trash'></i>");
+</script>
+
+
+

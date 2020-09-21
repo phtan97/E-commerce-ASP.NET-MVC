@@ -8,16 +8,19 @@ using Model.EF;
 using Project_Nhom1.Models;
 using PagedList;
 using System.Web.Script.Serialization;
+using System.Threading.Tasks;
+using PusherServer;
 
 namespace Project_Nhom1.Controllers
 {
     public class ProductController : Controller
     {
+        WebBanHangDbContext data = new WebBanHangDbContext();
         // GET: Product
-        public ActionResult Index(string KeySearch = "", int pageNum = 1, int pageSize = 9)
+        public ActionResult Index(string KeySearch = "", int page = 1, int pageSize = 9)
         {
             var product = new ProductDAO().GetAllProduct(KeySearch);
-            return View(product.ToPagedList(pageNum, pageSize));
+            return View(product.ToPagedList(page, pageSize));
         }
         public ActionResult DetailProduct(long id)
         {
@@ -34,20 +37,29 @@ namespace Project_Nhom1.Controllers
             var product = new ProductDAO().GetProductByIDCategory(id);
             return View(product);
         }
-        //public JsonResult DetailAddCart(string productModel)
-        //{
-        //    var Jsoncart = new JavaScriptSerializer().Deserialize<List<Product>>(productModel);
-        //    var Sessioncart = (List<Product>)Session[CartSession];
-        //    foreach (var item in Sessioncart)
-        //    {
-        //        var Jsonitem = Jsoncart.SingleOrDefault(m => m.IDProduct == item.IDProduct);
-        //        item.Quantity = Jsonitem.Quantity;
-        //    }
-        //    Session[CartSession] = Sessioncart;
-        //    return Json(new
-        //    {
-        //        status = true
-        //    });
-        //}
+        [ChildActionOnly]
+        public PartialViewResult ListComments()
+        {
+
+            var comment = new Comment();
+            var commentDao = new CommentDAO().GetAllComments();
+            return PartialView(commentDao);
+        }
+        public ActionResult Comments(long id)
+        {
+            var comments = data.Comments.Where(x => x.ProductID == id).ToArray();
+            return Json(comments, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Comment(Comment data)
+        {
+            CommentDAO cmtDao = new CommentDAO();
+            cmtDao.AddComment(data);
+            var options = new PusherOptions();
+            options.Cluster = "ap1";
+            var pusher = new Pusher("1072058", "b50b10f861de3e38c121", "50c05543df2a7eab8101", options);
+            ITriggerResult result = await pusher.TriggerAsync("asp_channel", "asp_event", data);
+            return Content("ok");
+        }
     }
 }

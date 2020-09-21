@@ -1,0 +1,65 @@
+﻿@using PagedList.Mvc
+@model PagedList.PagedList<Model.EF.Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .blog__item__body p{
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+        .blog__item__body {
+        white-space: nowrap;
+        height:50px;
+        overflow: hidden;
+    }
+</style>
+<!-- Blog Section Begin -->
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Search...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    @{Html.RenderPartial("~/Views/Blogs/NewBlog.cshtml"); }
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <img src="~/Content/Images/@item.BlogImg" alt="">
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i> @item.CreateDate</li>
+                                    </ul>
+                                    <h5><a href="@Url.Action("Details","Blogs",new {id = item.BlogID })">@item.Title</a></h5>
+                                    <div class="blog__item__body">
+                                        @Html.Raw(item.Body)
+                                    </div>
+                                    <a href="@Url.Action("Details","Blogs",new {id = item.BlogID })" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div style="text-align:center">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                </div>
+            </div>          
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->

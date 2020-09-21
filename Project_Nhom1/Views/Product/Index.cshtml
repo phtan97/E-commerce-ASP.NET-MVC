@@ -20,8 +20,10 @@
                         <ul class="product__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="@Url.Action("AddCart", "Cart", new { @productID = @item.IDProduct, @quantity = 1 })"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a class="prevent" id="iconAdd" data-id="@item.IDProduct" href="#"><i class="fa fa-shopping-cart"></i></a></li> 
+                            <li class="jsonqty" data-id="@item.IDProduct" id="value" value="1"></li>                          
                         </ul>
+
                     </div>
                     <div class="product__item__text">
                         <h6><a href="@Url.Action("DetailProduct","Product",new {id = item.IDProduct })">@item.Name</a></h6>
@@ -35,3 +37,6 @@
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
     </div>
 </div>
+<script>
+	
+</script>

@@ -14,7 +14,6 @@ namespace Model.EF
         [StringLength(500)]
         public string Comment { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
         public virtual User User { get; set; }

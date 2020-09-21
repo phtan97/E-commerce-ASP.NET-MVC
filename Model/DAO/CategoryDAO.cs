@@ -10,10 +10,10 @@ namespace Model.DAO
 {
     public class CategoryDAO
     {
-        WebBanHangDTDbContext data = null;
+        WebBanHangDbContext data = null;
         public CategoryDAO()
         {
-            data = new WebBanHangDTDbContext();
+            data = new WebBanHangDbContext();
         }
         public Category GetCategoryByID(long id)
         {
