@@ -47,6 +47,9 @@ D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\bin\Debug\System.Web.WebPages.De
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\obj\Debug\Model.dll
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\obj\Debug\Model.pdb
+<<<<<<< HEAD
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\bin\Debug\PagedList.dll
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Model\bin\Debug\PagedList.xml
+=======
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8

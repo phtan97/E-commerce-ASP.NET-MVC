@@ -13,10 +13,16 @@ namespace Model.EF
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+=======
+        public virtual DbSet<BlogPost> BlogPosts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
         public virtual DbSet<DetailOrder> DetailOrders { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -34,8 +40,13 @@ namespace Model.EF
                 .Property(e => e.Password)
                 .IsUnicode(false);
 
+<<<<<<< HEAD
             modelBuilder.Entity<Blog>()
                 .Property(e => e.BlogImg)
+=======
+            modelBuilder.Entity<BlogPost>()
+                .Property(e => e.Title)
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
                 .IsUnicode(false);
 
             modelBuilder.Entity<Category>()
@@ -48,10 +59,13 @@ namespace Model.EF
                 .WithRequired(e => e.Category)
                 .WillCascadeOnDelete(false);
 
+<<<<<<< HEAD
             modelBuilder.Entity<Contact>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
+=======
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
             modelBuilder.Entity<DetailOrder>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(18, 0);

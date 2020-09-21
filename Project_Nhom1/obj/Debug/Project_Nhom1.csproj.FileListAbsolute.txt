@@ -146,5 +146,8 @@ D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\bin\System.Web.WebPages.
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\obj\Debug\Project_Nhom1.csprojResolveAssemblyReference.cache
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\obj\Debug\Project_Nhom1.dll
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\obj\Debug\Project_Nhom1.pdb
+<<<<<<< HEAD
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\bin\CKFinder.dll
 D:\Poject_ASP_2015\E-commerce-ASP.NET-MVC\Project_Nhom1\bin\CKFinder.pdb
+=======
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8

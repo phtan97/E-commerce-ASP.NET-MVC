@@ -31,7 +31,11 @@ namespace Project_Nhom1.Models
             return new ApplicationDbContext();
         }
 
+<<<<<<< HEAD
         public DbSet<BlogModel> BlogPost { get; set; }
+=======
+        public DbSet<BlogPostModel> BlogPost { get; set; }
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
         public DbSet<CommentModel> Comment { get; set; }
     }
 }

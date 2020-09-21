@@ -46,10 +46,13 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
       <Private>True</Private>
     </Reference>
+=======
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
     <Reference Include="PusherServer, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PusherServer.4.2.0\lib\net45\PusherServer.dll</HintPath>
       <Private>True</Private>
@@ -93,7 +96,11 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DAO\AdminDAO.cs" />
+<<<<<<< HEAD
     <Compile Include="DAO\BlogDAO.cs" />
+=======
+    <Compile Include="DAO\BlogPostDAO.cs" />
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\CommentDAO.cs" />
     <Compile Include="DAO\ContactDAO.cs" />
@@ -103,10 +110,16 @@
     <Compile Include="DAO\TradeMarkDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\Admin.cs" />
+<<<<<<< HEAD
     <Compile Include="EF\Blog.cs" />
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Comment.cs" />
     <Compile Include="EF\Contact.cs" />
+=======
+    <Compile Include="EF\BlogPost.cs" />
+    <Compile Include="EF\Category.cs" />
+    <Compile Include="EF\Comment.cs" />
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
     <Compile Include="EF\DetailOrder.cs" />
     <Compile Include="EF\Feedback.cs" />
     <Compile Include="EF\Order.cs" />

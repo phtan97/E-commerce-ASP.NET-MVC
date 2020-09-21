@@ -12,7 +12,11 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+<<<<<<< HEAD
             Comments = new HashSet<Comment>();
+=======
+            Comments = new List<Comment>();
+>>>>>>> 2e537aad672d7b560502e2ec87e821676261b8f8
             DetailOrders = new HashSet<DetailOrder>();
         }
 
